@@ -1,4 +1,4 @@
-#How to DNS
+# How to DNS
 ---
 
 #### Instal·lar bind9
@@ -14,15 +14,17 @@ Fedora: dnf -y install bind9
 /usr/share/doc/bind9-libs/  
 /usr/share/doc/bind9-dnsutils/  
 /usr/share/doc/bind9-host/  
+
 ---
 
 ### Descripció
 
 Berkeley Internet Name Domain (BIND) is the most popular Domain Name System (DNS) server in use today. It was developed in the 1980s at the University of Berkley and is currently in version 9.
 BIND can be used to run a caching DNS server or an authoritative name server, and provides features like load balancing, notify, dynamic update, split DNS, DNSSEC, IPv6, and more
+
 ---
 
-### Bind9 Terminology##Descripci
+### Bind9 Terminology
 
 Following is a list of elements used throughout the BIND configuration file documentation:
 
@@ -100,6 +102,7 @@ yes_or_no
 
 dialup_option
    One of yes, no, notify, notify-passive, refresh, or passive. When used in a zone, notify-passive, refresh, and passive are restricted to secondary and stub zones.
+
 ---
 
 ### Elements clau
@@ -123,6 +126,7 @@ Model de funcionament
    The Domain Name System (DNS) is a hierarchical, distributed database. It stores information for mapping Internet host names to IP addresses and vice versa, mail routing information, and other data used by Internet applications.
    Clients look up information in the DNS by calling a resolver library, which sends queries to one or more name servers and interprets the responses. The BIND 9 software distribution contains a name server, named,
    and a set of associated tools.
+
 ---
 
 ### Instal·lació bind9
