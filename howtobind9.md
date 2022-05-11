@@ -1,9 +1,12 @@
 #How to DNS
 ---
+
 #### Instal·lar bind9
 Debian: apt-get install bind9  
 Fedora: dnf -y install bind9
+
 ---
+
 ###Bind9 Administrator's guide
 
 /usr/share/doc/bind9  
@@ -12,10 +15,13 @@ Fedora: dnf -y install bind9
 /usr/share/doc/bind9-dnsutils/  
 /usr/share/doc/bind9-host/  
 ---
+
 ###Descripció
+
 Berkeley Internet Name Domain (BIND) is the most popular Domain Name System (DNS) server in use today. It was developed in the 1980s at the University of Berkley and is currently in version 9.
 BIND can be used to run a caching DNS server or an authoritative name server, and provides features like load balancing, notify, dynamic update, split DNS, DNSSEC, IPv6, and more
 ---
+
 ###Bind9 Terminology
 
 Following is a list of elements used throughout the BIND configuration file documentation:
@@ -118,7 +124,9 @@ Model de funcionament
    Clients look up information in the DNS by calling a resolver library, which sends queries to one or more name servers and interprets the responses. The BIND 9 software distribution contains a name server, named,
    and a set of associated tools.
 ---
+
 ###Instal·lació bind9
+
  Procediment a seguir:
 
 1. Instal·lar el paquet bind9 
@@ -127,6 +135,7 @@ Model de funcionament
 4. Configurar el fitxer db.(domini) en el nostre cas es db.edt 
 5. Configurar dns del client per posar el del nostre dns 
 ---
+
 ###Imatge de com tenim organitzada la xarxa
 
 ![](https://github.com/isx24432143/Projecte-ASIX/blob/tls21/xarxa_projecte.png)
