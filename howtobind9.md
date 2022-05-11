@@ -147,40 +147,7 @@ Model de funcionament
 
 #### Configuració servidors web
 
-```
-root@fake:~# apt-get install apache2
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-apache2 is already the newest version (2.4.53-1~deb11u1).
-0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
-
-root@fake:~# vim /etc/resolv.conf 
-nameserver 192.168.122.247
-
-root@fake:~# host bbva.edt
-bbva.edt has address 192.168.122.236
-root@fake:~# host bbvafake.edt
-bbvafake.edt has address 192.168.122.209
-
-root@fake:~# ip a s enp1s0
-2: enp1s0: *<BROADCAST,MULTICAST,UP,LOWER_UP>* mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 52:54:00:f7:91:13 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.122.209/24 brd 192.168.122.255 scope global dynamic enp1s0
-       valid_lft 2366sec preferred_lft 2366sec
-    inet6 fe80::5054:ff:fef7:9113/64 scope link 
-       valid_lft forever preferred_lft forever
-
-root@fake:~# ping bbva.edt
-PING bbva.edt (192.168.122.236) 56(84) bytes of data.
-64 bytes from 192.168.122.236 (192.168.122.236): icmp_seq=1 ttl=64 time=1.33 ms
-64 bytes from 192.168.122.236 (192.168.122.236): icmp_seq=2 ttl=64 time=0.720 ms
---- bbva.edt ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-rtt min/avg/max/mdev = 0.720/1.024/1.329/0.304 ms
-
-
-```
+##### Servidor real
 
 ```
 root@nginxreal:~# apt-get install apache2
@@ -213,8 +180,41 @@ PING bbvafake.edt (192.168.122.209) 56(84) bytes of data.
 --- bbvafake.edt ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
 rtt min/avg/max/mdev = 0.639/0.668/0.698/0.029 ms
+```
 
+##### Servidor fake
 
+```
+root@fake:~# apt-get install apache2
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+apache2 is already the newest version (2.4.53-1~deb11u1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+
+root@fake:~# vim /etc/resolv.conf 
+nameserver 192.168.122.247
+
+root@fake:~# host bbva.edt
+bbva.edt has address 192.168.122.236
+root@fake:~# host bbvafake.edt
+bbvafake.edt has address 192.168.122.209
+
+root@fake:~# ip a s enp1s0
+2: enp1s0: *<BROADCAST,MULTICAST,UP,LOWER_UP>* mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 52:54:00:f7:91:13 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.209/24 brd 192.168.122.255 scope global dynamic enp1s0
+       valid_lft 2366sec preferred_lft 2366sec
+    inet6 fe80::5054:ff:fef7:9113/64 scope link 
+       valid_lft forever preferred_lft forever
+
+root@fake:~# ping bbva.edt
+PING bbva.edt (192.168.122.236) 56(84) bytes of data.
+64 bytes from 192.168.122.236 (192.168.122.236): icmp_seq=1 ttl=64 time=1.33 ms
+64 bytes from 192.168.122.236 (192.168.122.236): icmp_seq=2 ttl=64 time=0.720 ms
+--- bbva.edt ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 0.720/1.024/1.329/0.304 ms
 ```
 
 
