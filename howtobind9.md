@@ -144,6 +144,7 @@ Model de funcionament
 
 ![](https://github.com/isx24432143/Projecte-ASIX/blob/tls21/xarxaprojecte.png)
 
+---
 
 #### Configuració servidors web
 
@@ -192,7 +193,7 @@ Reading state information... Done
 apache2 is already the newest version (2.4.53-1~deb11u1).
 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
 
-root@fake:~# vim /etc/resolv.conf 
+root@fake:~# vim /etc/resolv.conf
 nameserver 192.168.122.247
 
 root@fake:~# host bbva.edt
@@ -216,5 +217,75 @@ PING bbva.edt (192.168.122.236) 56(84) bytes of data.
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
 rtt min/avg/max/mdev = 0.720/1.024/1.329/0.304 ms
 ```
+---
+#### Configuració servidors dns
 
+##### Servidor resolver
 
+```
+root@resolver:~# apt-get install bind9
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+bind9 is already the newest version (1:9.16.27-1~deb11u1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+
+root@resolver:~# vim /etc/bind/named.conf.options 
+options {
+        directory "/var/cache/bind";
+        forwarders {
+                192.168.122.246;
+        };
+        allow-query {
+                any;
+        };
+        forward only;
+        //
+        dnssec-validation no;
+        recursion yes;
+};
+```
+
+##### Servidor master
+```
+root@master:~# apt-get install bind9
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+bind9 is already the newest version (1:9.16.27-1~deb11u1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+
+root@master:~# vim /etc/bind/named.conf.default-zones 
+zone "." {
+        type hint;
+        file "/usr/share/dns/root.hints";
+};
+zone "localhost" {
+        type master;
+        file "/etc/bind/db.local";
+};
+zone "127.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.127";
+};
+zone "0.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.0";
+};
+zone "255.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.255";
+};
+zone "edt" {
+    type master;
+    file "/etc/bind/db.edt";
+};
+
+root@master:~# vim /etc/bind/db.edt 
+@ SOA ns root 1 4 4 4 4
+         NS ns
+        A       192.168.122.246
+ns      A       192.168.122.246
+bbva            A       192.168.122.236
+bbvafake        A       192.168.122.209
+```
