@@ -127,5 +127,10 @@ Model de funcionament
 4. Configurar el fitxer db.(domini) en el nostre cas es db.edt 
 5. Configurar dns del client per posar el del nostre dns 
 ---
+###Imatge de com tenim organitzada la xarxa
+
+![](https://github.com/isx24432143/Projecte-ASIX/blob/tls21/xarxa_projecte.png)
+
+
 
 
