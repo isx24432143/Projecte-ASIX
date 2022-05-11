@@ -1,7 +1,7 @@
 # How to DNS
 ---
 
-#### Instal·lar bind9
+### Instal·lar bind9
 Debian: apt-get install bind9  
 Fedora: dnf -y install bind9
 
@@ -145,5 +145,58 @@ Model de funcionament
 ![](https://github.com/isx24432143/Projecte-ASIX/blob/tls21/xarxa_projecte.png)
 
 
+#### Configuració servidors web
+
+```
+root@fake:~# apt-get install apache2
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+apache2 is already the newest version (2.4.53-1~deb11u1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+
+root@fake:~# vim /etc/resolv.conf 
+nameserver 192.168.122.247
+
+root@fake:~# host bbva.edt
+bbva.edt has address 192.168.122.236
+root@fake:~# host bbvafake.edt
+bbvafake.edt has address 192.168.122.209
+
+root@fake:~# ip a s enp1s0
+2: enp1s0: *<BROADCAST,MULTICAST,UP,LOWER_UP>* mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 52:54:00:f7:91:13 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.209/24 brd 192.168.122.255 scope global dynamic enp1s0
+       valid_lft 2366sec preferred_lft 2366sec
+    inet6 fe80::5054:ff:fef7:9113/64 scope link 
+       valid_lft forever preferred_lft forever
+
+```
+
+```
+root@nginxreal:~# apt-get install apache2
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+apache2 is already the newest version (2.4.53-1~deb11u1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+
+root@nginxreal:~# vim /etc/resolv.conf 
+nameserver 192.168.122.247
+
+root@nginxreal:~# host bbva.edt
+bbva.edt has address 192.168.122.236
+root@nginxreal:~# host bbvafake.edt
+bbvafake.edt has address 192.168.122.209
+
+root@nginxreal:~# ip a s enp1s0
+2: enp1s0: *<BROADCAST,MULTICAST,UP,LOWER_UP>* mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 52:54:00:32:96:a3 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.236/24 brd 192.168.122.255 scope global dynamic enp1s0
+       valid_lft 3559sec preferred_lft 3559sec
+    inet6 fe80::5054:ff:fe32:96a3/64 scope link 
+       valid_lft forever preferred_lft forever
+
+```
 
 
