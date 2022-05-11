@@ -171,6 +171,15 @@ root@fake:~# ip a s enp1s0
     inet6 fe80::5054:ff:fef7:9113/64 scope link 
        valid_lft forever preferred_lft forever
 
+root@fake:~# ping bbva.edt
+PING bbva.edt (192.168.122.236) 56(84) bytes of data.
+64 bytes from 192.168.122.236 (192.168.122.236): icmp_seq=1 ttl=64 time=1.33 ms
+64 bytes from 192.168.122.236 (192.168.122.236): icmp_seq=2 ttl=64 time=0.720 ms
+--- bbva.edt ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 0.720/1.024/1.329/0.304 ms
+
+
 ```
 
 ```
@@ -196,6 +205,15 @@ root@nginxreal:~# ip a s enp1s0
        valid_lft 3559sec preferred_lft 3559sec
     inet6 fe80::5054:ff:fe32:96a3/64 scope link 
        valid_lft forever preferred_lft forever
+
+root@nginxreal:~# ping bbvafake.edt
+PING bbvafake.edt (192.168.122.209) 56(84) bytes of data.
+64 bytes from 192.168.122.209 (192.168.122.209): icmp_seq=1 ttl=64 time=0.639 ms
+64 bytes from 192.168.122.209 (192.168.122.209): icmp_seq=2 ttl=64 time=0.698 ms
+--- bbvafake.edt ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 0.639/0.668/0.698/0.029 ms
+
 
 ```
 
