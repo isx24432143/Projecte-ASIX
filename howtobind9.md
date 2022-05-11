@@ -142,7 +142,7 @@ Model de funcionament
 
 ### Imatge de com tenim organitzada la xarxa
 
-![](https://github.com/isx24432143/Projecte-ASIX/blob/tls21/xarxa_projecte.png)
+![](https://github.com/isx24432143/Projecte-ASIX/blob/tls21/xarxaprojecte.png)
 
 
 #### Configuració servidors web
