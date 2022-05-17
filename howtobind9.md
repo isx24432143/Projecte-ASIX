@@ -1,4 +1,5 @@
 # How to DNS
+
 ---
 
 ### Instal·lar bind9
@@ -142,7 +143,7 @@ Model de funcionament
 
 ### Imatge de com tenim organitzada la xarxa
 
-![](https://github.com/isx24432143/Projecte-ASIX/blob/tls21/xarxaprojecte.png)
+![](img/xarxaprojecte.png)
 
 ---
 
@@ -289,3 +290,34 @@ ns      A       192.168.122.246
 bbva            A       192.168.122.236
 bbvafake        A       192.168.122.209
 ```
+---
+
+#### Configuració ettercap
+
+```
+isx47320900@i03:~$ sudo apt-get install ettercap-graphical 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+ettercap-graphical is already the newest version (1:0.8.3.1-3).
+0 upgraded, 0 newly installed, 0 to remove and 30 not upgraded.
+
+
+isx47320900@i03:~$ sudo vim /etc/ettercap/etter.dns
+*        A 192.168.122.209
+```
+![](img/virbr0.png "hola")
+***‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ Posem la interficie de xarxa virtual que utilitzem***
+
+![](img/target.png)
+***‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ Com volem atacar al dns posarem com a target1 el dns per fer el spoofing al dns resolver***
+
+![](img/etter.png)
+***Com volem atacar al dns posarem com a target1 el dns per fer el spoofing al dns resolver***
+![](img/plugins.png)
+![](img/dns_spoof.png)
+![](img/arp_poisoning.png)
+![](img/spoofing.png)
+
+
+añadir pagina que es para un proyecto
