@@ -28,7 +28,7 @@ xmltoman python3-pip texlive-fonts-recommended \
 texlive-latex-extra --no-install-recommends xsltproc sudo vim rsync -y
 ```
 
-A continuació, instal·larem, Yarn, què és un gestor de paquets de Javasript
+A continuació, instal·larem, Yarn, què és un gestor de paquets de Javasript.
 
 ```
 $sudo curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
@@ -37,7 +37,7 @@ $sudo apt update
 $sudo apt install yarn -y
 ```
 
-### 2) Instal·lació i configuració de PostgreSQL per el backend de GVM
+### 2) Instal·lació i configuració de PostgreSQL per el backend de GVM.
 
 La creació de la Base de Dades i de l'usuari que la controlarà, és l'usuari postgres de PostgreSQL
 ```
@@ -49,4 +49,20 @@ $psql gvmd
 $create role dba with superuser noinherit;
 $grant dba to gvm;
 $\q
+```
+
+### 3) Creació i construcció del diversos mòduls de GVM.
+
+Aquesta suit compta amb diversos mòduls que ens ajudaran en les diverses funcions de GVM.
+
+```
+* GVM Libraries
+* OpenVAS Scanner
+* OSPd
+* OSPd-OpenVAS
+* Greenbone Vulnerability Manager
+* Greenbone Security Assistant
+* Phyton-GVM
+* GVM-Tools
+* OpenVAS SMB
 ```
