@@ -66,3 +66,17 @@ Aquesta suit compta amb diversos mòduls que ens ajudaran en les diverses funcio
 * GVM-Tools
 * OpenVAS SMB
 ```
+Per tal de fer aquest procés, ens convertirem en el usuari GVM, creat previament, i crearem un directori, on estaran ubicats, tots els mòduls per fer la instal·lació. Per descarregar-nos aquest mòduls, farem us del seu Repositori Oficial de [GitHub](https://github.com/greenbone/)
+```
+$su - gvm
+$mkdir gvm-source
+$cd gvm-source
+$git clone -b stable --single-branch https://github.com/greenbone/gvm-libs.git
+$git clone -b main --single-branch https://github.com/greenbone/openvas-smb.git
+$git clone -b stable --single-branch https://github.com/greenbone/openvas.git
+$git clone -b stable --single-branch https://github.com/greenbone/ospd.git
+$git clone -b stable --single-branch https://github.com/greenbone/ospd-openvas.git
+$git clone -b stable --single-branch https://github.com/greenbone/gvmd.git
+$git clone -b stable --single-branch https://github.com/greenbone/gsa.git
+$git clone -b stable --single-branch https://github.com/greenbone/gsad.git
+```
