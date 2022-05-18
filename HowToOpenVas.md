@@ -80,3 +80,24 @@ $git clone -b stable --single-branch https://github.com/greenbone/gvmd.git
 $git clone -b stable --single-branch https://github.com/greenbone/gsa.git
 $git clone -b stable --single-branch https://github.com/greenbone/gsad.git
 ```
+
+Abans de començar a instal·lar els diversos mòduls, ens hem d'assegurar-nos d'instal·lar les llibreres de GVM, per poder fer la resta de la instal·lació. Les comandes les executarem com a l'usuari gvm.
+
+```
+$cd gvm-libs
+$mkdir build && cd build
+$cmake ..
+$make
+$sudo make install
+```
+---
+
+Seguidament, instal·larem i configurarem l'OpenVAS Scanner i l'OpenVAS SMB.
+
+*Open Vulnerability Assessment Scanner (OpenVAS) is a full-featured scan engine that executes a continuously updated and extended feed of Network Vulnerability Tests (NVTs).
+
+OpenVAS SMB provides modules for the OpenVAS Scanner to interface with Microsoft Windows Systems through the Windows Management Instrumentation API and a winexe binary to execute processes remotely on that system.*
+
+
+
+ 
