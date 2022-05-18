@@ -94,10 +94,28 @@ $sudo make install
 
 Seguidament, instal·larem i configurarem l'OpenVAS Scanner i l'OpenVAS SMB.
 
-*Open Vulnerability Assessment Scanner (OpenVAS) is a full-featured scan engine that executes a continuously updated and extended feed of Network Vulnerability Tests (NVTs).
+***Open Vulnerability Assessment Scanner (OpenVAS) is a full-featured scan engine that executes a continuously updated and extended feed of Network Vulnerability Tests (NVTs).
 
-OpenVAS SMB provides modules for the OpenVAS Scanner to interface with Microsoft Windows Systems through the Windows Management Instrumentation API and a winexe binary to execute processes remotely on that system.*
+OpenVAS SMB provides modules for the OpenVAS Scanner to interface with Microsoft Windows Systems through the Windows Management Instrumentation API and a winexe binary to execute processes remotely on that system.***
 
 
+```
+OpenVAS-SMB
 
- 
+$cd ../../openvas-smb/
+$mkdir build && cd build
+$cmake ..
+$make
+$sudo make install
+
+OpenVAS Scanner
+$cd ../../openvas
+$[ -d build ] || mkdir build && cd build
+$cmake ..
+$make
+$sudo make install
+```
+
+#### Configuració de OpenVas Scanner
+
+Ara és hora de configurar l'Scanner propiàment dit, 
