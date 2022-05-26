@@ -118,4 +118,13 @@ $sudo make install
 
 #### Configuració de OpenVas Scanner
 
-Ara és hora de configurar l'Scanner propiàment dit, 
+Ara és hora de configurar l'Scanner propiàment dit, per fer això farem ús del servidor Redis. *El servidor Redis el farem servir per emmagatzemar les dades a l'hora de fer un escanneig a un host.*
+```
+$exit
+$ldconfig
+*El fitxer per defecte del servidor Redis és el: /etc/redis/redis.conf*
+$cp /opt/gvm/gvm-source/openvas/config/redis-openvas.conf /etc/redis/
+$chown redis:redis /etc/redis/redis-openvas.conf
+
+
+```
