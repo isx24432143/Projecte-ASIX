@@ -20,8 +20,8 @@ Fedora: dnf -y install bind9
 
 ### Descripció
 
-Berkeley Internet Name Domain (BIND) is the most popular Domain Name System (DNS) server in use today. It was developed in the 1980s at the University of Berkley and is currently in version 9.
-BIND can be used to run a caching DNS server or an authoritative name server, and provides features like load balancing, notify, dynamic update, split DNS, DNSSEC, IPv6, and more
+Aquest servei ens permet asociar noms a IPs, per aixó utilitza una base de dades que emmagatzema informació del domini com poden ser les IPs, correus entre altres dispositius de la xarxa.
+Es molt efectiu ja que si anem a una web que fa balanceig de la g¡carrega al anar a la IP alomillor aquell servidor esta colapsat en canvi si anem a la seva adreça web ens dirigira directament a un servidor "mes rapid".
 
 ---
 
@@ -332,6 +332,7 @@ isx47320900@i03:~$ sudo vim /etc/ettercap/etter.dns
 ---
 
 ### DNSSEC
+Protegeix als clients del DNS de rebre dades falsificades com em vist al ettercap, aixo ho fa mitjançant la verificacio de que les respostes son signades i comproba que la informacio probé de un servidor DNS autoritzat(propietaris del domini).
 ---
 #### Configuració master
 **Primer el que hem fet ha sigut modificar el fitxer de /etc/bind/named.conf.options en el que hem afegit la part de dnssec**
