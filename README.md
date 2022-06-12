@@ -11,4 +11,4 @@
 
 ##### DNS+DNSSEC
 ###### Son serveis que utilitzem diariament i veurem primer el servei DNS normal que podrem, veure les seves vulnerabilitats i despres com amb la seguretat ens permet solucionar les vulnerabilitats, si vols llegir mes al respecte pots llegir el pdf següent:
-[How to DNS+DNSSEC](https://github.com/isx24432143/Projecte-ASIX/blob/master/howtobind9.md)
+[How to DNS+DNSSEC]([https://github.com/isx24432143/Projecte-ASIX/blob/master/howtobind9.md](https://github.com/isx24432143/Projecte-ASIX/blob/master/howto_dns_dnssec.md))
