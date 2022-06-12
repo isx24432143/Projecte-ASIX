@@ -329,10 +329,68 @@ isx47320900@i03:~$ sudo vim /etc/ettercap/etter.dns
 ![](img/fake.png)
 **‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‏‏‎‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‎‍‍‍‍‍‎ ‏‏‎‎ ‏‏‎‎ ‏‏‎‎Al buscar bbva.edt ens fa el spoof a la pgina fake com veiem al titol de la pagina que el vam modificar.**
 
+---
 
+### DNSSEC
+---
+#### Configuració master
+**Primer el que hem fet ha sigut modificar el fitxer de /etc/bind/named.conf.options en el que hem afegit la part de dnssec**
+```
+options {
+	directory "/var/cache/bind";
+	dnssec-enable yes;
+	dnssec-validation yes;
+	dnssec-lookaside auto;
+	listen-on-v6 { any; };
+};
+ ```
+**Segon hem creat els parells de claus**
+```
+dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE edt
+dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE example.com
+```
+**Tercer hem fet un petit script que agafa les claus i les afegeix al fitxer db.edt**
+```
+for key in `ls Kedt.*.key`
+ do
+  echo "\$INCLUDE $key">>db.edt
+ done
+```
+**Cuart signem la nostre zona**
+```
+dnssec-signzone -A -3 $(head -c 1000 /dev/random | sha1sum | cut -b 1-16) -N INCREMENT -o edt -t db.edt
+```
 
+![](img/signed.png)
 
-
+**Cinqué afegim el fitxer signat al /etc/bind/named.conf.default-zones**
+```
+zone "edt" {
+    type master;
+    file "/etc/bind/db.edt.signed";
+};
+```
+---
+#### Configuració resolver
+**El que hem fet ha sigut modificar el fitxer de /etc/bind/named.conf.options en el que hem afegit la part de dnssec**
+```
+options {
+	directory "/var/cache/bind";
+	forwarders {
+		192.168.122.246;
+	};
+	allow-query {
+		any;
+	};
+	forward only;
+	dnssec-enable yes;
+	dnssec-validation yes;
+	dnssec-lookaside auto;
+	recursion yes;
+};
+```
+---
+![](img/dnssec.png)
 
 
 
